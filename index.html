@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación Cumpleaños Ana María</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="decorations decorations-top-left">🎁</div>
+        <div class="decorations decorations-top-right">🎄</div>
+        <div class="decorations decorations-bottom-left">❄️</div>
+        <div class="decorations decorations-bottom-right">🎅</div>
+        
+        <!-- Indicador de progreso -->
+        <div class="progress-indicator">
+            <span class="progress-dot active" data-page="0"></span>
+            <span class="progress-dot" data-page="1"></span>
+            <span class="progress-dot" data-page="2"></span>
+        </div>
+
+        <!-- Página 1: Mensaje General -->
+        <div class="page active" id="page-1">
+            <header class="hero-header">
+                <div class="hero-content">
+                    <p class="invitation-line">Te invitamos a celebrar</p>
+                    <h1 class="hero-title">Cumpleaños de Ana</h1>
+                    <div class="age-badge">25</div>
+                    <div class="date-info">
+                        <p class="date-time">19 de Diciembre, 2025</p>
+                        <p class="time">7:00 PM</p>
+                        <p class="celebration-text">Celebrando al estilo navideño ✨</p>
+                    </div>
+                </div>
+            </header>
+            <div class="navigation-buttons">
+                <button class="nav-btn next-btn" onclick="nextPage()">
+                    Siguiente →
+                </button>
+            </div>
+        </div>
+
+        <!-- Página 2: Mensaje Personal -->
+        <div class="page" id="page-2">
+            <section class="invitation-section">
+                <div class="invitation-text">
+                    <h2 class="greeting">¡Hola! 🎄</h2>
+                    <div class="message-content">
+                        <p class="main-message">
+                            Me encantaría invitarte a una celebración muy navideña 🎉, 
+                            del <span class="highlight">cumpleaños número 25</span> 
+                            de <span class="highlight">Ana</span> ✨.
+                        </p>
+                        <p class="description">
+                            Será un plan chévere, tranqui, con comidita 🍰, haciendo honor
+                            en esta época tan especial del año ❄️.
+                        </p>
+                        <p class="closing-message">
+                            <span class="highlight">¡Tu presencia hará esta celebración aún más especial! 🎁</span>    
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <div class="navigation-buttons">
+                <button class="nav-btn prev-btn" onclick="prevPage()">
+                    ← Anterior
+                </button>
+                <button class="nav-btn next-btn" onclick="nextPage()">
+                    Siguiente →
+                </button>
+            </div>
+        </div>
+
+        <!-- Página 3: Formulario -->
+        <div class="page" id="page-3">
+            <section class="form-section">
+                <h2 class="form-title">Confirma tu asistencia</h2>
+                <form id="invitation-form">
+                    <div class="form-group">
+                        <label for="nombre">Nombre completo *</label>
+                        <input 
+                            type="text" 
+                            id="nombre" 
+                            name="nombre" 
+                            required 
+                            placeholder="Ingresa tu nombre completo"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input 
+                            type="text" 
+                            id="telefono" 
+                            name="telefono" 
+                            placeholder="Opcional"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="asistencia">¿Asistirás a la reunión? *</label>
+                        <select 
+                            id="asistencia" 
+                            name="asistencia" 
+                            required
+                        >
+                            <option value="">Selecciona una opción</option>
+                            <option value="si">Sí, asistiré</option>
+                            <option value="no">No, no podré asistir</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje especial</label>
+                        <textarea 
+                            id="mensaje" 
+                            name="mensaje" 
+                            placeholder="Déjanos un mensaje especial para Ana María..."
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        Confirma tu asistencia 🎉
+                    </button>
+                </form>
+            </section>
+            <div class="navigation-buttons">
+                <button class="nav-btn prev-btn" onclick="prevPage()">
+                    ← Anterior
+                </button>
+            </div>
+            <footer>
+                <p>Con mucho amor y sabor navideño ❄️🎄✨</p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="config.js?v=2"></script>
+    <script src="script.js?v=2"></script>
+</body>
+</html>
