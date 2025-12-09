@@ -1,0 +1,26 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Create config.js from secrets
+        run: |
+          echo "const SUPABASE_CONFIG = {" > config.js
+          echo "    url: '${{ secrets.SUPABASE_URL }}'," >> config.js
+          echo "    anonKey: '${{ secrets.SUPABASE_ANON_KEY }}'" >> config.js
+          echo "};" >> config.js
+      
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+

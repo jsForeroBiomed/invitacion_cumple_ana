@@ -162,20 +162,101 @@
         }
 
         @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+                align-items: flex-start;
+                padding-top: 2rem;
+            }
+
+            .container {
+                padding: 1.5rem;
+                max-width: 100%;
+                border-radius: 20px;
+            }
+
             h1 {
                 font-size: 2.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .success-message {
+                padding: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .success-title {
+                font-size: 1.4rem;
+            }
+
+            .success-text {
+                font-size: 0.9rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .dress-code {
+                padding: 1.5rem;
+                margin: 1.5rem 0;
             }
 
             .dress-code-title {
                 font-size: 1.5rem;
+                margin-bottom: 1rem;
             }
 
-            .dress-code-text {
+            .dress-code-intro {
+                font-size: 1rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .dress-code-list li {
                 font-size: 1.1rem;
+                line-height: 1.8;
+                margin-bottom: 0.6rem;
+                flex-wrap: wrap;
+            }
+
+            .dress-code-highlight {
+                font-size: 1.2rem;
+            }
+
+            .emoji {
+                font-size: 1.3rem;
+            }
+
+            .footer {
+                font-size: 0.9rem;
+                margin-top: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0.5rem;
+                padding-top: 1rem;
             }
 
             .container {
-                padding: 2rem;
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .success-title {
+                font-size: 1.2rem;
+            }
+
+            .dress-code-title {
+                font-size: 1.3rem;
+            }
+
+            .dress-code-list li {
+                font-size: 1rem;
             }
         }
     </style>
