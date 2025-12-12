@@ -518,6 +518,22 @@ textarea {
     box-shadow: var(--shadow-sm);
 }
 
+.response-message {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: rgba(255, 215, 0, 0.2);
+    border: 2px solid var(--color-gold);
+    border-radius: var(--border-radius-md);
+    text-align: center;
+}
+
+.response-message p {
+    color: var(--color-gold);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    margin: 0;
+}
+
 /* ============================================
    FOOTER
    ============================================ */
@@ -641,6 +657,86 @@ footer p {
 }
 
 /* ============================================
+   SELECTOR DE IDIOMA
+   ============================================ */
+
+.language-selector {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    z-index: 100;
+}
+
+#page-2 .language-selector,
+#page-3 .language-selector {
+    display: none;
+}
+
+.lang-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid var(--color-gold);
+    border-radius: var(--border-radius-sm);
+    color: var(--color-white);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: var(--font-primary);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    backdrop-filter: blur(10px);
+    min-width: 50px;
+}
+
+.lang-btn:hover {
+    background: var(--color-gold);
+    color: var(--color-dark-green);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+}
+
+.lang-menu {
+    position: absolute;
+    top: calc(100% + var(--spacing-xs));
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid var(--color-gold);
+    border-radius: var(--border-radius-sm);
+    box-shadow: var(--shadow-lg);
+    display: none;
+    flex-direction: column;
+    min-width: 80px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.lang-menu.active {
+    display: flex;
+}
+
+.lang-option {
+    background: transparent;
+    border: none;
+    color: var(--color-text-green);
+    padding: var(--spacing-sm);
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: var(--font-primary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-align: left;
+    width: 100%;
+}
+
+.lang-option:hover {
+    background: rgba(255, 215, 0, 0.2);
+    color: var(--color-primary-green);
+}
+
+.lang-option:first-child {
+    border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+/* ============================================
    BOTONES DE NAVEGACIÓN
    ============================================ */
 
@@ -704,6 +800,26 @@ footer p {
 
     .container {
         padding: var(--spacing-sm);
+    }
+
+    .language-selector {
+        top: var(--spacing-xs);
+        right: var(--spacing-xs);
+    }
+
+    .lang-btn {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.8rem;
+        min-width: 45px;
+    }
+
+    .lang-menu {
+        min-width: 70px;
+    }
+
+    .lang-option {
+        padding: 0.6rem;
+        font-size: 0.8rem;
     }
 
     header {

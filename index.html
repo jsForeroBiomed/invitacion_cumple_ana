@@ -26,20 +26,31 @@
 
         <!-- Página 1: Mensaje General -->
         <div class="page active" id="page-1">
+            <!-- Selector de idioma -->
+            <div class="language-selector">
+                <button class="lang-btn" id="lang-btn" onclick="toggleLanguageMenu()">
+                    <span id="current-lang">🇪🇸</span>
+                </button>
+                <div class="lang-menu" id="lang-menu">
+                    <button class="lang-option" onclick="changeLanguage('es')">🇪🇸</button>
+                    <button class="lang-option" onclick="changeLanguage('en')">🇺🇸</button>
+                </div>
+            </div>
+
             <header class="hero-header">
                 <div class="hero-content">
-                    <p class="invitation-line">Te invitamos a celebrar</p>
-                    <h1 class="hero-title">Cumpleaños de Ana</h1>
+                    <p class="invitation-line" data-i18n="invitation-line">Te invitamos a celebrar</p>
+                    <h1 class="hero-title" data-i18n="hero-title">Cumpleaños de Ana</h1>
                     <div class="age-badge">25</div>
                     <div class="date-info">
-                        <p class="date-time">19 de Diciembre, 2025</p>
+                        <p class="date-time" data-i18n="date-time">19 de Diciembre, 2025</p>
                         <p class="time">7:00 PM</p>
-                        <p class="celebration-text">Celebrando al estilo navideño ✨</p>
+                        <p class="celebration-text" data-i18n="celebration-text">Celebrando al estilo navideño ✨</p>
                     </div>
                 </div>
             </header>
             <div class="navigation-buttons">
-                <button class="nav-btn next-btn" onclick="nextPage()">
+                <button class="nav-btn next-btn" onclick="nextPage()" data-i18n="next-btn">
                     Siguiente →
                 </button>
             </div>
@@ -49,28 +60,28 @@
         <div class="page" id="page-2">
             <section class="invitation-section">
                 <div class="invitation-text">
-                    <h2 class="greeting">¡Hola! 🎄</h2>
+                    <h2 class="greeting" data-i18n="greeting">¡Hola! 🎄</h2>
                     <div class="message-content">
-                        <p class="main-message">
+                        <p class="main-message" data-i18n="main-message">
                             Me encantaría invitarte a una celebración muy navideña 🎉, 
                             del <span class="highlight">cumpleaños número 25</span> 
                             de <span class="highlight">Ana</span> ✨.
                         </p>
-                        <p class="description">
+                        <p class="description" data-i18n="description">
                             Será un plan chévere, tranqui, con comidita 🍰, haciendo honor
                             en esta época tan especial del año ❄️.
                         </p>
-                        <p class="closing-message">
+                        <p class="closing-message" data-i18n="closing-message">
                             <span class="highlight">¡Tu presencia hará esta celebración aún más especial! 🎁</span>    
                         </p>
                     </div>
                 </div>
             </section>
             <div class="navigation-buttons">
-                <button class="nav-btn prev-btn" onclick="prevPage()">
+                <button class="nav-btn prev-btn" onclick="prevPage()" data-i18n="prev-btn">
                     ← Anterior
                 </button>
-                <button class="nav-btn next-btn" onclick="nextPage()">
+                <button class="nav-btn next-btn" onclick="nextPage()" data-i18n="next-btn">
                     Siguiente →
                 </button>
             </div>
@@ -79,63 +90,98 @@
         <!-- Página 3: Formulario -->
         <div class="page" id="page-3">
             <section class="form-section">
-                <h2 class="form-title">Confirma tu asistencia</h2>
+                <h2 class="form-title" data-i18n="form-title">Confirma tu asistencia</h2>
                 <form id="invitation-form">
                     <div class="form-group">
-                        <label for="nombre">Nombre completo *</label>
+                        <label for="nombre" data-i18n="label-nombre">Nombre completo *</label>
                         <input 
                             type="text" 
                             id="nombre" 
                             name="nombre" 
                             required 
+                            autocomplete="off"
+                            data-i18n-placeholder="placeholder-nombre"
                             placeholder="Ingresa tu nombre completo"
                         >
                     </div>
 
                     <div class="form-group">
-                        <label for="telefono">Teléfono</label>
+                        <label for="telefono" data-i18n="label-telefono">Teléfono</label>
                         <input 
                             type="text" 
                             id="telefono" 
                             name="telefono" 
+                            autocomplete="off"
+                            data-i18n-placeholder="placeholder-telefono"
                             placeholder="Opcional"
                         >
                     </div>
 
                     <div class="form-group">
-                        <label for="asistencia">¿Asistirás a la reunión? *</label>
+                        <label for="asistencia" data-i18n="label-asistencia">¿Asistirás a la reunión? *</label>
                         <select 
                             id="asistencia" 
                             name="asistencia" 
                             required
                         >
-                            <option value="">Selecciona una opción</option>
-                            <option value="si">Sí, asistiré</option>
-                            <option value="no">No, no podré asistir</option>
+                            <option value="" data-i18n="option-select">Selecciona una opción</option>
+                            <option value="si" data-i18n="option-si">Sí, asistiré</option>
+                            <option value="no" data-i18n="option-no">No, no podré asistir</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="invitados-group" style="display: none;">
+                        <label for="lleva_invitados" data-i18n="label-lleva-invitados">¿Llevarás invitados? *</label>
+                        <select 
+                            id="lleva_invitados" 
+                            name="lleva_invitados" 
+                            required
+                        >
+                            <option value="" data-i18n="option-select-invitados">Selecciona una opción</option>
+                            <option value="si" data-i18n="option-invitados-si">Sí, llevaré invitados</option>
+                            <option value="no" data-i18n="option-invitados-no">No, no llevaré invitados</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="cantidad-invitados-group" style="display: none;">
+                        <label for="cantidad_invitados" data-i18n="label-cantidad-invitados">¿Cuántos invitados? *</label>
+                        <select 
+                            id="cantidad_invitados" 
+                            name="cantidad_invitados"
+                        >
+                            <option value="" data-i18n="option-select-cantidad">Selecciona cantidad</option>
+                            <option value="1" data-i18n="option-cantidad-1">1 invitado</option>
+                            <option value="2" data-i18n="option-cantidad-2">2 invitados</option>
+                            <option value="3" data-i18n="option-cantidad-3">3 invitados</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="mensaje">Mensaje especial</label>
+                        <label for="mensaje" data-i18n="label-mensaje">Mensaje especial</label>
                         <textarea 
                             id="mensaje" 
                             name="mensaje" 
+                            autocomplete="off"
+                            data-i18n-placeholder="placeholder-mensaje"
                             placeholder="Déjanos un mensaje especial para Ana María..."
                         ></textarea>
                     </div>
 
-                    <button type="submit" class="submit-btn">
-                        Confirma tu asistencia 🎉
+                    <button type="submit" class="submit-btn" id="submit-btn" data-i18n="submit-btn">
+                        Enviar respuesta 🎉
                     </button>
+                    <div class="response-message" id="response-message" style="display: none;">
+                        <p data-i18n="response-sent">Se ha enviado tu respuesta.</p>
+                    </div>
                 </form>
             </section>
             <div class="navigation-buttons">
-                <button class="nav-btn prev-btn" onclick="prevPage()">
+                <button class="nav-btn prev-btn" onclick="prevPage()" data-i18n="prev-btn">
                     ← Anterior
                 </button>
             </div>
             <footer>
-                <p>Con mucho amor y sabor navideño ❄️🎄✨</p>
+                <p data-i18n="footer">Con mucho amor y sabor navideño ❄️🎄✨</p>
             </footer>
         </div>
     </div>
